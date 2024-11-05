@@ -81,7 +81,7 @@ function sendOrder() {
     alert(`Pesanan Anda berhasil dikirim!\n\nNama: ${name}\n${orderDetails}\nTotal: Rp.${totalCost.toLocaleString()}`);
     
     setTimeout(() => {
-        window.location.href = "home.html";  // Ganti dengan URL halaman Home Anda
+        window.location.href = "index.html";  // Ganti dengan URL halaman Home Anda
         }, 100);  // Redirect setelah 3 detik
 }
 
