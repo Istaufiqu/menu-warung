@@ -1,0 +1,318 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+header img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    color: #4CAF50;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: 20px 0;
+    color: #333;
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Back Button */
+.back-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button .back-icon {
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+}
+
+.back-button:active {
+    transform: translateY(1px);
+}
+
+.back-button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+}
+
+/* Instructions Section */
+.instructions {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.instructions p {
+    font-weight: bold;
+}
+
+.instructions ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* Menu Items */
+.menu-category {
+    margin-bottom: 40px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu-item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin: 10px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    border-color: #4CAF50;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #4CAF50;
+}
+
+.order-details {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.order-details label {
+    display: block;
+    margin: 5px 0;
+}
+
+.order-details input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px auto;
+}
+
+/* Toppings Section */
+.topping-selection {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.topping-selection input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.topping-selection label {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.topping-selection input[type="checkbox"]:hover + label {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.topping-selection input[type="checkbox"]:checked + label {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Total Cost Section */
+.total-cost {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: #4CAF50;
+}
+
+form {
+    text-align: center;
+    margin-top: 40px;
+}
+
+form input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-top: 10px;
+    font-size: 1.2rem; 
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+form button:hover {
+    background-color: #45a049; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-item {
+        width: 45%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    form input[type="text"] {
+        width: 100%;
+    }
+
+    form button {
+        width: 100%;
+    }
+}
+
+/* Notifikasi */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 128, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: showNotification 3s ease-in-out;
+}
+
+@keyframes showNotification {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    30% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+}
+
+/* WhatsApp Link */
+#whatsappLink {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#whatsappLink:hover {
+    text-decoration: underline;
+}

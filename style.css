@@ -1,0 +1,155 @@
+/* Reset CSS untuk margin dan padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling untuk body */
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e1eaff, #f5f5f5); /* Gradasi lembut di background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px; /* Padding dikurangi untuk membuat elemen lebih rapat */
+}
+
+/* Container utama */
+.container {
+    width: 100%;
+    max-width: 500px; /* Lebar kontainer sedikit lebih besar */
+    background-color: white;
+    border-radius: 12px; /* Sudut lebih halus */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* Bayangan halus dengan sedikit kedalaman */
+    overflow: hidden;
+    text-align: center;
+    padding: 25px; /* Padding sedikit lebih besar */
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.02); /* Efek zoom ringan saat hover */
+}
+
+/* Styling Header */
+.header {
+    margin-bottom: 20px; /* Margin dikurangi agar lebih rapat */
+    padding: 10px 0; /* Padding header lebih ringkas */
+    background-color: #fff;
+    color: #333;
+}
+
+.logo {
+    width: 110px; /* Ukuran logo sedikit lebih besar */
+    margin-bottom: 20px; /* Jarak antara logo dan teks lebih rapat */
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: rotate(360deg); /* Efek rotasi pada logo saat hover */
+}
+
+h1 {
+    font-size: 32px; /* Ukuran font sedikit lebih besar */
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px; /* Margin antara judul dan subjudul sedikit lebih besar */
+    transition: color 0.3s ease;
+}
+
+h1:hover {
+    color: #6a5acd; /* Warna ungu muda saat judul dihover */
+}
+
+h2 {
+    font-size: 18px;
+    color: #888;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px; /* Margin lebih besar untuk memberi ruang pada elemen menu */
+}
+
+/* Menu styling */
+.menu {
+    background-color: #fff;
+    padding: 15px 0; /* Padding menu sedikit lebih kecil untuk memperkecil jarak antar menu */
+    margin-bottom: 15px; /* Margin bawah menu sedikit lebih kecil */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    font-size: 20px; /* Ukuran font lebih besar untuk item menu */
+    font-weight: 500;
+    padding: 12px 20px; /* Padding item menu sedikit lebih kecil */
+    margin: 6px 0; /* Jarak antar item lebih rapat */
+    background-color: #fafafa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Bayangan ringan */
+}
+
+.menu-item:hover {
+    background-color: #e8e8e8; /* Latar belakang sedikit lebih gelap saat hover */
+    transform: translateY(-5px); /* Efek terangkat lebih jelas saat hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Bayangan lebih jelas saat hover */
+    color: #6a5acd; /* Warna teks berubah saat hover */
+}
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .menu-item {
+        font-size: 18px;
+        padding: 12px 18px;
+        margin: 5px 0; /* Jarak lebih rapat antar item menu */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .menu-item {
+        font-size: 16px;
+        padding: 10px 15px;
+        margin: 4px 0; /* Jarak lebih rapat pada perangkat kecil */
+    }
+}

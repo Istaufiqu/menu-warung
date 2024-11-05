@@ -1,0 +1,260 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    color: #4CAF50;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 20px 0;
+    color: #333;
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Instruksi Pemesanan */
+.instructions {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.instructions p {
+    font-weight: bold;
+}
+
+.instructions ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.menu-category {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.menu-item {
+    display: inline-flex; 
+    flex-direction: column;
+    align-items: center;
+    width: 30%; 
+    margin: 10px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    border-color: #4CAF50;
+}
+
+.menu-item img {
+    width: 100%; 
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 10px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #4CAF50;
+}
+
+.order-details {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.order-details label {
+    display: block;
+    margin: 5px 0;
+}
+
+.order-details input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px auto;
+}
+
+.topping-selection {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.topping-selection input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.topping-selection label {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.topping-selection input[type="checkbox"]:hover + label {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.topping-selection input[type="checkbox"]:checked + label {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.total-cost {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: #4CAF50;
+}
+
+form {
+    text-align: center;
+    margin-top: 40px;
+}
+
+form input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-top: 10px;
+    font-size: 1.2rem; 
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+form button:hover {
+    background-color: #45a049; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-item {
+        width: 45%; 
+    }
+
+    h1 {
+        font-size: 2rem; 
+    }
+
+    h2 {
+        font-size: 1.5rem; 
+    }
+
+    form input[type="text"] {
+        width: 100%; 
+    }
+
+    form button {
+        width: 100%; 
+    }
+}
+/* Gaya Tombol Kembali yang lebih kecil dan di kiri */
+.back-button {
+    background-color: #4CAF50; /* Warna hijau cerah */
+    color: white; /* Warna teks putih */
+    padding: 6px 15px; /* Mengurangi padding untuk tombol lebih kecil */
+    font-size: 14px; /* Mengurangi ukuran font */
+    font-weight: bold;
+    border: none;
+    border-radius: 20px; /* Sudut melengkung lebih kecil */
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none; /* Menghapus garis bawah pada link */
+    transition: all 0.3s ease-in-out; /* Efek transisi */
+    position: absolute; /* Menggunakan absolute untuk posisikan tombol */
+    top: 20px; /* Mengatur jarak dari atas */
+    left: 20px; /* Mengatur jarak dari kiri */
+}
+
+.back-button .back-icon {
+    margin-right: 5px; /* Mengurangi jarak antara ikon dan teks */
+    font-size: 16px; /* Ukuran ikon lebih kecil */
+}
+
+.back-button:hover {
+    background-color: #45a049; /* Warna hijau lebih gelap saat hover */
+    transform: translateY(-3px); /* Efek angkat tombol */
+}
+
+.back-button:active {
+    transform: translateY(1px); /* Efek saat tombol ditekan */
+}
+
+/* Gaya saat tombol fokus (misalnya saat menggunakan keyboard) */
+.back-button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8); /* Efek glow hijau */
+}
