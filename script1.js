@@ -109,7 +109,7 @@ function sendOrder() {
     alert(`Pesanan Anda telah terkirim!\n\nRincian Pesanan:\n${orderDetails}`);
 
     setTimeout(() => {
-    window.location.href = "home.html";  // Ganti dengan URL halaman Home Anda
+    window.location.href = "index.html";  // Ganti dengan URL halaman Home Anda
     }, 100);  // Redirect setelah 3 detik
 }
 // Menambahkan event listener untuk perubahan pada menu dan topping
