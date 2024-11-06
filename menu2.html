@@ -31,7 +31,7 @@
 
         <!-- Menu Burger & Hotdog -->
         <h2>Menu Burger & Hotdog</h2>
-        <section class="menu-category tambahan">
+        <section class="menu-category">
             <!-- Burger Beef -->
             <div class="menu-item">
                 <input type="checkbox" id="burgerBeef" data-item="Burger Beef" data-price="9000">
@@ -43,6 +43,20 @@
                 <div class="order-details">
                     <label for="qtyBurgerBeef">Jumlah:</label>
                     <input type="number" id="qtyBurgerBeef" min="1" value="0">
+                </div>
+
+                <!-- Topping Sayuran dan Saus untuk Burger Beef -->
+                <div class="topping-section">
+                    <h4>Aneka Sayuran:</h4>
+                    <label><input type="checkbox" class="sayuranBurgerBeef" value="Tomat"> Tomat</label>
+                    <label><input type="checkbox" class="sayuranBurgerBeef" value="Selada"> Selada</label>
+                    <label><input type="checkbox" class="sayuranBurgerBeef" value="Timun"> Timun</label>
+
+                    <h4>Aneka Saus:</h4>
+                    <label><input type="checkbox" class="sausBurgerBeef" value="Saus Tomat"> Saus Tomat</label>
+                    <label><input type="checkbox" class="sausBurgerBeef" value="Saus Keju"> Saus Keju</label>
+                    <label><input type="checkbox" class="sausBurgerBeef" value="Saus Pedas"> Saus Pedas</label>
+                    <label><input type="checkbox" class="sausBurgerBeef" value="Saus Mayones"> Saus Mayones</label>
                 </div>
             </div>
 
@@ -58,6 +72,20 @@
                     <label for="qtyBurgerChicken">Jumlah:</label>
                     <input type="number" id="qtyBurgerChicken" min="1" value="0">
                 </div>
+
+                <!-- Topping Sayuran dan Saus untuk Burger Chicken -->
+                <div class="topping-section">
+                    <h4>Aneka Sayuran:</h4>
+                    <label><input type="checkbox" class="sayuranBurgerChicken" value="Tomat"> Tomat</label>
+                    <label><input type="checkbox" class="sayuranBurgerChicken" value="Selada"> Selada</label>
+                    <label><input type="checkbox" class="sayuranBurgerChicken" value="Timun"> Timun</label>
+
+                    <h4>Aneka Saus:</h4>
+                    <label><input type="checkbox" class="sausBurgerChicken" value="Saus Tomat"> Saus Tomat</label>
+                    <label><input type="checkbox" class="sausBurgerChicken" value="Saus Keju"> Saus Keju</label>
+                    <label><input type="checkbox" class="sausBurgerChicken" value="Saus Pedas"> Saus Pedas</label>
+                    <label><input type="checkbox" class="sausBurgerChicken" value="Saus Mayones"> Saus Mayones</label>
+                </div>
             </div>
 
             <!-- Hotdog -->
@@ -72,23 +100,20 @@
                     <label for="qtyHotdog">Jumlah:</label>
                     <input type="number" id="qtyHotdog" min="1" value="0">
                 </div>
-            </div>
 
-            <!-- Topping Sayuran -->
-            <h2>Aneka Sayuran</h2>
-            <div class="topping-selection">
-                <label><input type="checkbox" name="sayuranTopping" value="Tomat"> Tomat</label>
-                <label><input type="checkbox" name="sayuranTopping" value="Selada"> Selada</label>
-                <label><input type="checkbox" name="sayuranTopping" value="Timun"> Timun</label>
-            </div>
+                <!-- Topping Sayuran dan Saus untuk Hotdog -->
+                <div class="topping-section">
+                    <h4>Aneka Sayuran:</h4>
+                    <label><input type="checkbox" class="sayuranHotdog" value="Tomat"> Tomat</label>
+                    <label><input type="checkbox" class="sayuranHotdog" value="Selada"> Selada</label>
+                    <label><input type="checkbox" class="sayuranHotdog" value="Timun"> Timun</label>
 
-            <!-- Topping Saus -->
-            <h2>Aneka Saus</h2>
-            <div class="topping-selection">
-                <label><input type="checkbox" name="sausTopping" value="Saus Tomat"> Saus Tomat</label>
-                <label><input type="checkbox" name="sausTopping" value="Saus Keju"> Saus Keju</label>
-                <label><input type="checkbox" name="sausTopping" value="Saus Pedas"> Saus Pedas</label>
-                <label><input type="checkbox" name="sausTopping" value="Saus Mayones"> Saus Mayones</label>
+                    <h4>Aneka Saus:</h4>
+                    <label><input type="checkbox" class="sausHotdog" value="Saus Tomat"> Saus Tomat</label>
+                    <label><input type="checkbox" class="sausHotdog" value="Saus Keju"> Saus Keju</label>
+                    <label><input type="checkbox" class="sausHotdog" value="Saus Pedas"> Saus Pedas</label>
+                    <label><input type="checkbox" class="sausHotdog" value="Saus Mayones"> Saus Mayones</label>
+                </div>
             </div>
         </section>
 
