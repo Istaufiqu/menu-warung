@@ -25,9 +25,9 @@ header {
 }
 
 header img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
+    width: 50%;
+    max-width: 200px;
+    border-radius: 5px;
 }
 
 h1 {
@@ -41,9 +41,9 @@ h2 {
     margin: 20px 0;
     color: #333;
     text-align: center;
-    background-color: #f8f8f8;
+    background-color: rgba(248, 248, 248, 0.9); /* Transparansi pada latar belakang */
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.5);
 }
 
 /* Back Button */
@@ -86,7 +86,7 @@ h2 {
 
 /* Instructions Section */
 .instructions {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9); /* Transparansi pada latar belakang */
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -115,19 +115,19 @@ h2 {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    width: 22%; /* Menurunkan lebar menu item */
     margin: 10px;
     padding: 15px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7); /* Transparansi latar belakang menu item */
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi tambahan */
+    position: relative; /* Menambahkan positioning untuk ceklis */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Transparansi border */
 }
 
 .menu-item:hover {
-    transform: scale(1.05);
-    border-color: #4CAF50;
+    transform: translateY(-10px); /* Efek naik sedikit */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Efek bayangan */
 }
 
 .menu-item img {
@@ -135,18 +135,49 @@ h2 {
     height: 150px;
     object-fit: cover;
     border-radius: 10px;
+    transition: transform 0.3s ease;
+    opacity: 0.9; /* Transparansi pada gambar */
 }
 
+.menu-item:hover img {
+    transform: scale(1.1); /* Gambar sedikit membesar saat hover */
+}
+
+/* Mengurangi ukuran font judul menu dan deskripsi */
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem; /* Ukuran huruf lebih kecil */
     margin: 10px 0;
+    font-weight: bold; /* Menebalkan judul menu */
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.menu-item:hover h3 {
+    color: #4CAF50; /* Warna berubah ketika hover */
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Ukuran font harga yang lebih besar */
     color: #4CAF50;
+    font-weight: bold; /* Menebalkan deskripsi menu */
+    transition: color 0.3s ease;
 }
 
+.menu-item:hover p {
+    color: #333; /* Warna berubah ketika hover */
+}
+
+/* Checkbox di atas gambar menu */
+.menu-item input[type="checkbox"] {
+    position: absolute; /* Posisi absolute untuk mengatur letak checkbox di atas gambar */
+    top: 10px;  /* Jarak dari atas */
+    left: 10px;  /* Jarak dari kiri */
+    width: 30px;  /* Ukuran kotak ceklis lebih besar */
+    height: 30px; /* Tinggi kotak ceklis lebih besar */
+    z-index: 10; /* Agar ceklis berada di atas gambar */
+}
+
+/* Order Details */
 .order-details {
     margin-top: 10px;
     text-align: center;
@@ -157,13 +188,15 @@ p {
     margin: 5px 0;
 }
 
+/* Order Quantity - Memperbesar kotak jumlah */
 .order-details input[type="number"] {
-    width: 60px;
-    padding: 5px;
-    border: 1px solid #ddd;
+    width: 80px; /* Lebar input lebih besar */
+    padding: 5px; /* Padding lebih besar untuk ruang lebih luas di dalam kotak */
+    font-size: 1.1rem; /* Memperbesar ukuran font di dalam kotak */
+    border: 1px solid rgba(221, 221, 221, 0.7); /* Transparansi border */
     border-radius: 5px;
-    text-align: center;
-    margin: 5px auto;
+    text-align: center; /* Teks tetap terpusat di dalam kotak */
+    margin: 10px auto; /* Memberikan jarak atas bawah agar terlihat rapi */
 }
 
 /* Toppings Section */
@@ -172,22 +205,25 @@ p {
     margin: 20px 0;
 }
 
+/* Toppings Section - Saus Checkbox */
 .topping-selection input[type="checkbox"] {
-    margin-right: 10px;
+    transform: scale(1.5); /* Membuat checkbox lebih besar */
+    margin-right: 15px; /* Memberikan jarak lebih besar antara checkbox dan label */
 }
 
 .topping-selection label {
     display: inline-block;
-    margin: 10px;
-    padding: 10px 15px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    margin: 5px;
+    padding: 10px 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* Transparansi pada label topping */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Transparansi border */
+    border-radius: 2px;
+    font-size: 1.2rem; /* Menambah ukuran font label agar lebih serasi dengan checkbox */
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .topping-selection input[type="checkbox"]:hover + label {
-    background-color: #f0f0f0;
+    background-color: rgba(240, 240, 240, 0.7); /* Hover effect dengan transparansi */
     cursor: pointer;
 }
 
@@ -213,7 +249,7 @@ form {
 form input[type="text"] {
     padding: 10px;
     width: 200px;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(221, 221, 221, 0.7); /* Transparansi border */
     border-radius: 5px;
 }
 
@@ -236,20 +272,19 @@ form button:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
 }
 
-
 /* Footer */
 footer {
     text-align: center;
     margin-top: 40px;
     padding: 20px;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.9); /* Transparansi footer */
+    border-top: 1px solid rgba(221, 221, 221, 0.5);
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     .menu-item {
-        width: 45%;
+        width: 45%; /* Mengubah lebar item agar lebih kecil */
     }
 
     h1 {
