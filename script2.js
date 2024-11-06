@@ -37,30 +37,30 @@ function sendOrder() {
             errorMessages.push(`Jumlah pesanan untuk ${item.name} tidak boleh 0!`);
             orderValid = false;
         }
+
+        // Proses topping sayuran untuk setiap menu item
+        const sayuran = document.querySelectorAll(`input[class="sayuran${item.name.replace(' ', '')}"]:checked`);
+        if (sayuran.length > 0) {
+            orderDetails += `Topping Sayuran untuk ${item.name}:\n`;
+            sayuran.forEach(topping => {
+                orderDetails += `- ${topping.value}\n`;
+            });
+        }
+
+        // Proses topping saus untuk setiap menu item
+        const saus = document.querySelectorAll(`input[class="saus${item.name.replace(' ', '')}"]:checked`);
+        if (saus.length > 0) {
+            orderDetails += `Topping Saus untuk ${item.name}:\n`;
+            saus.forEach(topping => {
+                orderDetails += `- ${topping.value}\n`;
+            });
+        }
     });
 
     // Validasi jika menu belum dicentang atau tidak ada yang dipilih
     if (!menuSelected) {
         errorMessages.push('Pilih menu dan topping yang ingin Anda pesan.');
         orderValid = false;
-    }
-
-    // Proses topping sayuran yang dipilih (tanpa biaya tambahan)
-    const toppingsSayuran = document.querySelectorAll('input[name="sayuranTopping"]:checked');
-    if (toppingsSayuran.length > 0) {
-        orderDetails += 'Topping Sayuran:\n';
-        toppingsSayuran.forEach(topping => {
-            orderDetails += `- ${topping.value}\n`;
-        });
-    }
-
-    // Proses topping saus yang dipilih (tanpa biaya tambahan)
-    const toppingsSaus = document.querySelectorAll('input[name="sausTopping"]:checked');
-    if (toppingsSaus.length > 0) {
-        orderDetails += 'Topping Saus:\n';
-        toppingsSaus.forEach(topping => {
-            orderDetails += `- ${topping.value}\n`;
-        });
     }
 
     // Jika ada error, tampilkan semua pesan error
@@ -82,7 +82,7 @@ function sendOrder() {
     
     setTimeout(() => {
         window.location.href = "index.html";  // Ganti dengan URL halaman Home Anda
-        }, 100);  // Redirect setelah 3 detik
+    }, 100);  // Redirect setelah 0.1 detik
 }
 
 // Fungsi untuk menghitung total harga secara dinamis saat ada perubahan
