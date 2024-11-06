@@ -175,29 +175,57 @@ h2 {
     margin-bottom: 10px;
 }
 
+/* Pastikan label memiliki jarak cukup untuk checkbox */
 .topping-section label {
-    display: block;
+    display: inline-flex;      /* Menggunakan flex agar checkbox dan teks sejajar */
+    align-items: center;       /* Menyelaraskan checkbox dengan teks secara vertikal */
     margin: 5px 0;
     font-size: 1rem;
     color: #555;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    padding-left: 35px;        /* Memberikan ruang untuk checkbox di kiri */
+    position: relative;
 }
 
 .topping-section label:hover {
-    transform: scale(1.1); /* Efek hover pada topping */
+    transform: scale(1.05); /* Efek hover pada topping */
 }
 
 .topping-section input[type="checkbox"] {
-    margin-right: 10px;
-    transform: scale(1.3); /* Membesarkan ukuran checkbox */
-    vertical-align: middle; /* Menyelaraskan checkbox dengan teks */
+    margin-right: 10px;  /* Jarak antara checkbox dan teks */
+    transform: scale(1.3);  /* Membesarkan ukuran checkbox */
+    vertical-align: middle;  /* Menyelaraskan checkbox dengan teks */
     cursor: pointer;
-    transition: transform 0.2s ease-in-out; /* Efek transform pada checkbox */
+    transition: transform 0.2s ease-in-out;  /* Efek transform pada checkbox */
+    z-index: 1;  /* Menjaga checkbox di bawah teks */
+}
+
+/* Ketika checkbox dicentang */
+.topping-section input[type="checkbox"]:checked {
+    transform: scale(1.4);  /* Membesarkan checkbox ketika dipilih */
+}
+
+.topping-section label span {
+    z-index: 2;  /* Menjaga teks berada di atas checkbox */
+}
+
+/* Pastikan checkbox berada pada posisi yang tepat */
+.topping-section input[type="checkbox"]:not(:checked) {
+    position: relative;
+    left: 0;
+    top: 0;
 }
 
 .topping-section input[type="checkbox"]:checked {
-    transform: scale(1.4); /* Membesarkan checkbox ketika dipilih */
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+/* Mengatur posisi checkbox agar tidak menutupi teks */
+.topping-section label {
+    position: relative;
+    padding-left: 25px; /* Memberikan ruang agar checkbox tidak menutupi teks */
 }
 
 /* Formulir pesanan */
