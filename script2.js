@@ -19,7 +19,7 @@ function sendOrder() {
     const menuItems = [
         { id: 'burgerBeef', price: 9000, name: 'Burger Beef', qtyId: 'qtyBurgerBeef' },
         { id: 'burgerChicken', price: 9000, name: 'Burger Chicken', qtyId: 'qtyBurgerChicken' },
-        { id: 'hotdog', price: 7000, name: 'Hotdog', qtyId: 'qtyHotdog' },
+        { id: 'hotdog', price: 7000, name: 'Hotdog', qtyId: 'qtyHotdog' }
     ];
 
     // Proses setiap item menu yang dipilih
@@ -28,12 +28,13 @@ function sendOrder() {
         const qtyInput = document.getElementById(item.qtyId);
         const quantity = parseInt(qtyInput.value) || 0; // Jika input kosong, default ke 0
 
+        // Jika item dicentang dan jumlah lebih dari 0, hitung total harga
         if (checkbox.checked && quantity > 0) {
             totalCost += item.price * quantity;
             orderDetails += `${item.name}: ${quantity} x Rp.${item.price.toLocaleString()} = Rp.${(item.price * quantity).toLocaleString()}\n`;
             menuSelected = true;
         } else if (checkbox.checked && quantity === 0) {
-            // Jika menu dicentang tetapi jumlahnya 0
+            // Jika item dicentang tapi jumlahnya 0, tambahkan pesan error
             errorMessages.push(`Jumlah pesanan untuk ${item.name} tidak boleh 0!`);
             orderValid = false;
         }
@@ -77,9 +78,10 @@ function sendOrder() {
     // Update total harga di layar
     document.getElementById('totalCost').innerHTML = `Total: Rp.${totalCost.toLocaleString()}`;
 
-    // Kirim pesan order (bisa ditambahkan logika pengiriman ke server atau email di sini)
+    // Kirim pesan order dan beri notifikasi sukses
     alert(`Pesanan Anda berhasil dikirim!\n\nNama: ${name}\n${orderDetails}\nTotal: Rp.${totalCost.toLocaleString()}`);
     
+    // Redirect ke halaman utama setelah 0.1 detik
     setTimeout(() => {
         window.location.href = "index.html";  // Ganti dengan URL halaman Home Anda
     }, 100);  // Redirect setelah 0.1 detik
@@ -93,7 +95,7 @@ function updateTotalCost() {
     const menuItems = [
         { id: 'burgerBeef', price: 9000, qtyId: 'qtyBurgerBeef' },
         { id: 'burgerChicken', price: 9000, qtyId: 'qtyBurgerChicken' },
-        { id: 'hotdog', price: 7000, qtyId: 'qtyHotdog' },
+        { id: 'hotdog', price: 7000, qtyId: 'qtyHotdog' }
     ];
 
     // Hitung total untuk menu items
@@ -102,6 +104,7 @@ function updateTotalCost() {
         const qtyInput = document.getElementById(item.qtyId);
         const quantity = parseInt(qtyInput.value) || 0;
 
+        // Jika item dicentang dan jumlah lebih dari 0, hitung total
         if (checkbox.checked && quantity > 0) {
             totalCost += item.price * quantity;
         }
@@ -114,4 +117,16 @@ function updateTotalCost() {
 // Event listener untuk memperbarui total harga setiap kali ada perubahan input
 document.querySelectorAll('input[type="checkbox"], input[type="number"]').forEach(input => {
     input.addEventListener('change', updateTotalCost);
+});
+
+// JavaScript untuk menampilkan topping hanya jika menu dicentang
+document.addEventListener('DOMContentLoaded', function() {
+    // Fungsi untuk menampilkan topping berdasarkan pilihan menu
+    const burgerBeefCheckbox = document.getElementById('burgerBeef');
+    const burgerBeefTopping = document.querySelector('.topping-section');
+
+    // Menampilkan atau menyembunyikan topping berdasarkan status checkbox
+    burgerBeefCheckbox.addEventListener('change', function() {
+        burgerBeefTopping.style.display = burgerBeefCheckbox.checked ? 'block' : 'none';
+    });
 });
