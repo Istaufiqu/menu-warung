@@ -90,11 +90,16 @@ h2 {
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgb(68, 235, 18);
+    max-width: 800px; /* Membatasi lebar agar tidak terlalu lebar */
+    margin: 0 auto; /* Membuatnya terpusat secara horizontal */
 }
 
 .instructions p {
     font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #4CAF50; /* Warna teks petunjuk menjadi hijau */
 }
 
 .instructions ul {
