@@ -5,16 +5,37 @@
     box-sizing: border-box;
 }
 
+/* Body halaman */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f8f8;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
 }
 
+/* Container utama dengan lebar maksimal */
 .container {
+    width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
     padding: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Mulai dari bawah */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Header Styles */
@@ -60,51 +81,90 @@ h2 {
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    position: fixed;  /* Tombol tetap di posisi yang sama saat scroll */
+    top: 50px; /* Jarak dari atas */
+    left: 20px; /* Jarak dari kiri */
+    z-index: 9999; /* Pastikan tombol berada di atas elemen lainnya */
+    opacity: 0;  /* Mulai dengan transparan */
+    animation: fadeInLeft 1s ease-out forwards;  /* Animasi muncul dari kiri */
+    animation-delay: 0.5s;  /* Memberikan delay sebelum animasi dimulai */
 }
 
+/* Ikon tombol Kembali */
 .back-button .back-icon {
     margin-right: 5px;
     font-size: 16px;
 }
 
+/* Hover effect */
 .back-button:hover {
     background-color: #45a049;
-    transform: translateY(-3px);
+    transform: translateY(-3px);  /* Mengangkat tombol sedikit saat hover */
 }
 
+/* Active effect */
 .back-button:active {
-    transform: translateY(1px);
+    transform: translateY(1px);  /* Menurunkan tombol sedikit saat diklik */
 }
 
+/* Focus state untuk aksesibilitas */
 .back-button:focus {
     outline: none;
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);  /* Menambahkan efek fokus dengan bayangan */
 }
 
-/* Instructions Section */
+/* Animasi-fade-in-left (tombol muncul dari kiri) */
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;  /* Memulai dengan transparan */
+        transform: translateX(-30px);  /* Memulai dari luar kiri */
+    }
+    100% {
+        opacity: 1;  /* Menjadi sepenuhnya terlihat */
+        transform: translateX(0);  /* Bergerak ke posisi normal */
+    }
+}
+
+
+
+/* Petunjuk Pemesanan - Menyesuaikan dengan template */
 .instructions {
-    background-color: rgba(255, 255, 255, 0.9); /* Transparansi pada latar belakang */
+    background-color: #fff;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgb(68, 235, 18);
-    max-width: 800px; /* Membatasi lebar agar tidak terlalu lebar */
-    margin: 0 auto; /* Membuatnya terpusat secara horizontal */
+    box-shadow: 0 4px 8px rgb(34, 230, 34); /* Bayangan hijau serasi */
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    border: 1px solid #ddd; /* Border lebih tipis dan halus */
 }
 
 .instructions p {
     font-weight: bold;
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #4CAF50; /* Warna teks petunjuk menjadi hijau */
+    color: #4CAF50; /* Warna hijau */
 }
 
 .instructions ul {
     list-style-type: disc;
     margin-left: 20px;
+}
+
+/* Animasi fade-in untuk efek muncul */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Menu Items */
@@ -277,6 +337,18 @@ form button:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
 }
 
+/* Animasi fadeIn dan slideUp untuk footer */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Mulai dari bawah */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Posisi akhir (normal) */
+    }
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -284,6 +356,36 @@ footer {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9); /* Transparansi footer */
     border-top: 1px solid rgba(221, 221, 221, 0.5);
+    opacity: 0; /* Mulai dengan opasitas 0 untuk animasi */
+    animation: fadeInUp 1.5s forwards; /* Menggunakan animasi fadeInUp */
+    animation-delay: 0.5s; /* Memberikan delay sebelum animasi dimulai */
+}
+
+/* Animasi untuk teks di dalam footer */
+footer p {
+    font-size: 1.2rem; /* Ukuran font copyright */
+    color: #4CAF50; /* Warna hijau konsisten dengan tema */
+    margin-top: 0;
+    font-weight: normal; /* Mengatur berat font agar tidak terlalu tebal */
+    opacity: 0; /* Mulai dengan opasitas 0 */
+    animation: fadeInUp 1s 1.5s forwards; /* Animasi untuk teks copyright */
+    animation-delay: 1s; /* Memberikan sedikit delay agar teks muncul setelah footer */
+}
+
+
+/* Teks Paling Bawah - Menyesuaikan garis di bawah */
+.bottom-text {
+    font-size: 1.5rem;
+    color: #4CAF50;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 2px solid #4CAF50; /* Garis atas hijau seperti pada header */
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInUp 1s 1.5s forwards; /* Animasi fadeInUp */
 }
 
 /* Responsive Styles */
