@@ -4,12 +4,12 @@ function sendOrder() {
     let orderDetails = '';
     let orderValid = true;
     let menuSelected = false;
-    let errorMessages = [];  // Untuk menyimpan pesan error
+    let errorMessages = [];
 
     // Ambil nama pelanggan
     const name = document.getElementById('name').value.trim();
 
-    // Cek apakah nama sudah diisi
+    // Validasi nama
     if (!name) {
         errorMessages.push('Nama Anda wajib diisi!');
         orderValid = false;
@@ -26,51 +26,43 @@ function sendOrder() {
     menuItems.forEach(item => {
         const checkbox = document.getElementById(item.id);
         const qtyInput = document.getElementById(item.qtyId);
-        const quantity = parseInt(qtyInput.value) || 0; // Jika input kosong, default ke 0
+        const quantity = parseInt(qtyInput.value) || 0;
 
-        // Jika item dicentang dan jumlah lebih dari 0, hitung total harga
+        // Cek apakah item dipilih dan jumlah lebih dari 0
         if (checkbox.checked && quantity > 0) {
             totalCost += item.price * quantity;
             orderDetails += `${item.name}: ${quantity} x Rp.${item.price.toLocaleString()} = Rp.${(item.price * quantity).toLocaleString()}\n`;
             menuSelected = true;
         } else if (checkbox.checked && quantity === 0) {
-            // Jika item dicentang tapi jumlahnya 0, tambahkan pesan error
             errorMessages.push(`Jumlah pesanan untuk ${item.name} tidak boleh 0!`);
             orderValid = false;
         }
 
-        // Proses topping sayuran untuk setiap menu item
-        const sayuran = document.querySelectorAll(`input[class="sayuran${item.name.replace(' ', '')}"]:checked`);
-        if (sayuran.length > 0) {
-            orderDetails += `Topping Sayuran untuk ${item.name}:\n`;
-            sayuran.forEach(topping => {
-                orderDetails += `- ${topping.value}\n`;
-            });
-        }
-
-        // Proses topping saus untuk setiap menu item
-        const saus = document.querySelectorAll(`input[class="saus${item.name.replace(' ', '')}"]:checked`);
-        if (saus.length > 0) {
-            orderDetails += `Topping Saus untuk ${item.name}:\n`;
-            saus.forEach(topping => {
-                orderDetails += `- ${topping.value}\n`;
-            });
-        }
+        // Proses topping sayuran dan saus
+        ['sayuran', 'saus'].forEach(type => {
+            const toppings = document.querySelectorAll(`input[class="${type}${item.name.replace(' ', '')}"]:checked`);
+            if (toppings.length > 0) {
+                orderDetails += `Topping ${type.charAt(0).toUpperCase() + type.slice(1)} untuk ${item.name}:\n`;
+                toppings.forEach(topping => {
+                    orderDetails += `- ${topping.value}\n`;
+                });
+            }
+        });
     });
 
-    // Validasi jika menu belum dicentang atau tidak ada yang dipilih
+    // Validasi apakah menu dipilih
     if (!menuSelected) {
         errorMessages.push('Pilih menu dan topping yang ingin Anda pesan.');
         orderValid = false;
     }
 
-    // Jika ada error, tampilkan semua pesan error
+    // Jika ada error, tampilkan pesan error
     if (!orderValid) {
-        alert(errorMessages.join('\n'));  // Gabungkan semua pesan error menjadi satu string dan tampilkan
-        return;  // Jangan lanjutkan ke pengiriman pesan jika ada error
+        alert(errorMessages.join('\n'));
+        return;
     }
 
-    // Kirim pesan ke WhatsApp (gunakan API WhatsApp untuk mengirim pesan)
+    // Kirim pesan ke WhatsApp
     const whatsappMessage = encodeURIComponent(`Pesanan baru dari: ${name}\n\n${orderDetails}\nTotal: Rp.${totalCost.toLocaleString()}`);
     const whatsappUrl = `https://wa.me/?text=${whatsappMessage}`;
     window.open(whatsappUrl, '_blank');
@@ -80,11 +72,11 @@ function sendOrder() {
 
     // Kirim pesan order dan beri notifikasi sukses
     alert(`Pesanan Anda berhasil dikirim!\n\nNama: ${name}\n${orderDetails}\nTotal: Rp.${totalCost.toLocaleString()}`);
-    
+
     // Redirect ke halaman utama setelah 0.1 detik
     setTimeout(() => {
         window.location.href = "index.html";  // Ganti dengan URL halaman Home Anda
-    }, 100);  // Redirect setelah 0.1 detik
+    }, 100);
 }
 
 // Fungsi untuk menghitung total harga secara dinamis saat ada perubahan
@@ -104,13 +96,12 @@ function updateTotalCost() {
         const qtyInput = document.getElementById(item.qtyId);
         const quantity = parseInt(qtyInput.value) || 0;
 
-        // Jika item dicentang dan jumlah lebih dari 0, hitung total
         if (checkbox.checked && quantity > 0) {
             totalCost += item.price * quantity;
         }
     });
 
-    // Update harga total di layar (topping sayuran dan saus tidak menambah biaya)
+    // Update harga total di layar
     document.getElementById('totalCost').innerHTML = `Total: Rp.${totalCost.toLocaleString()}`;
 }
 
@@ -121,7 +112,6 @@ document.querySelectorAll('input[type="checkbox"], input[type="number"]').forEac
 
 // JavaScript untuk menampilkan topping hanya jika menu dicentang
 document.addEventListener('DOMContentLoaded', function() {
-    // Fungsi untuk menampilkan topping berdasarkan pilihan menu
     const burgerBeefCheckbox = document.getElementById('burgerBeef');
     const burgerBeefTopping = document.querySelector('.topping-section');
 
@@ -129,4 +119,22 @@ document.addEventListener('DOMContentLoaded', function() {
     burgerBeefCheckbox.addEventListener('change', function() {
         burgerBeefTopping.style.display = burgerBeefCheckbox.checked ? 'block' : 'none';
     });
+});
+
+// Menyembunyikan tombol kembali saat scroll ke bawah dan menampilkannya saat scroll ke atas
+const backButton = document.querySelector('.back-button');
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Scroll ke bawah, sembunyikan tombol
+        backButton.style.opacity = 0;
+    } else {
+        // Scroll ke atas, tampilkan tombol
+        backButton.style.opacity = 1;
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
