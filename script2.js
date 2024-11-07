@@ -125,16 +125,15 @@ document.addEventListener('DOMContentLoaded', function() {
 const backButton = document.querySelector('.back-button');
 let lastScrollTop = 0;
 
-window.addEventListener('scroll', function() {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+// Menyimpan posisi scroll saat halaman di-scroll
+window.addEventListener("scroll", function() {
+    localStorage.setItem("scrollPosition", window.scrollY);
+});
 
-    if (currentScroll > lastScrollTop) {
-        // Scroll ke bawah, sembunyikan tombol
-        backButton.style.opacity = 0;
-    } else {
-        // Scroll ke atas, tampilkan tombol
-        backButton.style.opacity = 1;
+// Mengembalikan posisi scroll saat halaman dimuat
+window.addEventListener("load", function() {
+    const scrollPosition = localStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+        window.scrollTo(0, scrollPosition); // Mengembalikan posisi scroll
     }
-
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
