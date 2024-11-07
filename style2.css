@@ -338,7 +338,7 @@ footer p {
     }
 }
 
-/* Back Button */
+/* Tombol Kembali */
 .back-button {
     background-color: #4CAF50;
     color: white;
@@ -352,11 +352,10 @@ footer p {
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    position: fixed;  /* Gunakan position fixed agar tombol tetap di posisi yang sama */
-    top: 40px; /* Jarak dari atas */
-    left: 120px; /* Jarak dari kiri */
-    opacity: 0;  /* Mulai dengan transparan */
-    z-index: 100; /* Pastikan z-index cukup tinggi agar tombol di atas elemen lainnya */
+    position: absolute; /* Posisi tetap */
+    top: 40px;       /* Jarak dari atas */
+    left: 120px;      /* Jarak dari kiri */
+    opacity: 1;      /* Mulai dengan terlihat */
     animation: fadeInLeft 1s ease-out forwards;  /* Animasi muncul dari kiri */
 }
 
@@ -365,6 +364,7 @@ footer p {
     font-size: 16px;
 }
 
+/* Efek Hover dan Active */
 .back-button:hover {
     background-color: #45a049;
     transform: translateY(-3px);
