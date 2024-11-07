@@ -137,3 +137,29 @@ window.addEventListener("load", function() {
         window.scrollTo(0, scrollPosition); // Mengembalikan posisi scroll
     }
 });
+
+// Fungsi untuk menangani klik item menu
+document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const menuContent = item.querySelector('.menu-description');
+        
+        // Toggle visibilitas konten ketika item menu diklik
+        if (menuContent) {
+            menuContent.style.display = (menuContent.style.display === 'none') ? 'block' : 'none';
+        }
+    });
+});
+
+// Menangani event checkbox untuk menu Beef secara dinamis
+document.querySelector('#beef-checkbox').addEventListener('change', function() {
+    const beefItem = document.querySelector('.menu-item.beef');
+
+    // Mengubah tampilan ketika checkbox dicentang
+    if (this.checked) {
+        beefItem.style.backgroundColor = '#4CAF50'; // Contoh perubahan background
+        beefItem.querySelector('h3').style.color = '#fff'; // Ganti warna nama
+    } else {
+        beefItem.style.backgroundColor = ''; // Kembalikan ke semula
+        beefItem.querySelector('h3').style.color = ''; // Kembalikan warna nama
+    }
+});
