@@ -354,7 +354,7 @@ footer p {
     transition: all 0.3s ease-in-out;
     position: absolute; /* Posisi tetap */
     top: 40px;       /* Jarak dari atas */
-    left: 120px;      /* Jarak dari kiri */
+    left: 20px;      /* Jarak dari kiri */
     opacity: 1;      /* Mulai dengan terlihat */
     animation: fadeInLeft 1s ease-out forwards;  /* Animasi muncul dari kiri */
 }
