@@ -166,40 +166,47 @@ h2 {
 
 /* Menu Items */
 .menu-category {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0 10px;
 }
 
+/* Menu Item */
 .menu-item {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    width: 15%; /* Menurunkan lebar menu item */
-    margin: 10px;
+    width: 15%;
+    margin: 5px;
     padding: 12px;
-    background-color: rgba(255, 255, 255, 0.7); /* Transparansi latar belakang menu item */
+    background-color: rgba(255, 255, 255, 0.7);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi tambahan */
-    position: relative; /* Menambahkan positioning untuk ceklis */
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Transparansi border */
+    border-radius: 8px; /* Sudut melengkung agar terlihat lebih modern */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan lebih lembut */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 
 .menu-item:hover {
     transform: translateY(-10px); /* Efek naik sedikit */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Efek bayangan */
 }
 
+/* Gambar menu */
 .menu-item img {
     width: 100%;
-    height: 90px;
+    height: 80px; /* Ukuran gambar lebih kecil untuk membuat kotak lebih compact */
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px; /* Sudut gambar lebih lembut */
     transition: transform 0.3s ease;
-    opacity: 0.9; /* Transparansi pada gambar */
+    opacity: 0.9;
 }
+
 
 .menu-item:hover img {
     transform: scale(1.05); /* Gambar sedikit membesar saat hover */
@@ -213,9 +220,9 @@ h2 {
 
 /* Mengurangi ukuran font judul menu dan deskripsi */
 h3 {
-    font-size: 1rem; /* Ukuran huruf lebih kecil */
-    margin: 10px 0;
-    font-weight: bold; /* Menebalkan judul menu */
+    font-size: 1rem; /* Ukuran font lebih kecil untuk judul */
+    margin: 8px 0;
+    font-weight: bold;
     color: #333;
     transition: color 0.3s ease;
 }
@@ -225,9 +232,9 @@ h3 {
 }
 
 p {
-    font-size: 0.9rem; /* Ukuran font harga yang lebih besar */
+    font-size: 0.9rem; /* Ukuran font lebih kecil untuk deskripsi */
     color: #4CAF50;
-    font-weight: bold; /* Menebalkan deskripsi menu */
+    font-weight: bold;
     transition: color 0.3s ease;
 }
 
@@ -317,13 +324,20 @@ p {
 
 /* Responsiveness untuk perangkat kecil */
 @media (max-width: 768px) {
-    /* Membuat menu-item lebih besar di perangkat mobile, namun tetap lebih kecil dari default */
     .menu-item {
-        width: 45%; /* Mengubah lebar item menu dari 50% menjadi 45% di perangkat mobile */
+        width: 45%; /* Mengubah lebar item menu di perangkat mobile agar lebih kecil */
     }
 
     .menu-item img {
-        height: 100px; /* Menyesuaikan ukuran gambar di mobile agar lebih kecil */
+        height: 100px; /* Menyesuaikan gambar menu di perangkat mobile agar lebih kecil */
+    }
+
+    h3 {
+        font-size: 1rem; /* Ukuran font judul sedikit lebih kecil di perangkat mobile */
+    }
+
+    p {
+        font-size: 0.8rem; /* Ukuran font harga lebih kecil di perangkat mobile */
     }
 }
 
