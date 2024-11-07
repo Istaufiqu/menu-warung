@@ -15,10 +15,10 @@ body {
     justify-content: flex-start; /* Menjaga konten mulai dari atas */
     align-items: center;
     text-align: center;
-    padding-top: 20px; /* Memberikan jarak pada bagian atas untuk logo */
+    padding-top: 20px;
 }
 
-/* Container utama dengan lebar maksimal */
+/* Container utama */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -45,11 +45,14 @@ header img {
 }
 
 /* Judul utama dan subjudul */
+h1, h2 {
+    animation: fadeInUp 1s ease-out;
+}
+
 h1 {
     font-size: 2.5rem;
-    color: #4CAF50; /* Warna hijau */
+    color: #4CAF50;
     margin: 10px 0;
-    animation: fadeInUp 1s ease-out; /* Animasi fadeInUp */
 }
 
 h2 {
@@ -59,29 +62,28 @@ h2 {
     background-color: #f8f8f8;
     padding: 10px;
     border-bottom: 1px solid #ddd;
-    animation: fadeInUp 1s ease-out;
 }
 
-/* Petunjuk pemesanan - diatur rata kiri */
+/* Petunjuk pemesanan */
 .instructions {
     background-color: #fff;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgb(34, 230, 34);   
-    text-align: left; /* Petunjuk rata kiri */
+    box-shadow: 0 4px 8px rgba(34, 230, 34, 0.5);
+    text-align: left;
     width: 100%;
-    max-width: 800px; /* Membatasi lebar agar tidak terlalu lebar */
-    margin: 0 auto; /* Membuatnya terpusat secara horizontal */
+    max-width: 800px;
+    margin: 0 auto;
     opacity: 0;
-    animation: fadeInUp 1s forwards; /* Menambahkan animasi fadeInUp */
+    animation: fadeInUp 1s forwards;
 }
 
 .instructions p {
     font-weight: bold;
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #4CAF50; /* Warna teks petunjuk menjadi hijau */
+    color: #4CAF50;
 }
 
 .instructions ul {
@@ -96,30 +98,29 @@ h2 {
     flex-wrap: wrap;
     justify-content: center;
     opacity: 0;
-    animation: fadeIn 1s 1s forwards; /* Efek fadeIn untuk menu-item */
+    animation: fadeIn 1s 1s forwards;
 }
 
 /* Item menu */
 .menu-item {
     display: inline-block;
-    width: 20%; /* Mengurangi lebar item menjadi lebih kecil */
+    width: 20%;
     margin: 10px;
     padding: 15px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px; /* Mengurangi radius border untuk tampilan lebih tajam */
+    border-radius: 8px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    opacity: 0;
+    opacity: 1;
     animation: fadeInUp 1s 0.5s forwards;
 }
 
 .menu-item img {
     width: 100%;
-    height: 150px; /* Menurunkan tinggi gambar agar lebih kompak */
+    height: 150px;
     object-fit: cover;
-    border-radius: 8px; /* Radius gambar disesuaikan dengan border item menu */
+    border-radius: 8px;
     margin-bottom: 15px;
 }
 
@@ -130,13 +131,13 @@ h2 {
 
 .menu-item p {
     font-size: 1rem;
-    color: #4CAF50; /* Warna hijau pada harga */
+    color: #4CAF50;
 }
 
 /* Efek hover pada menu item */
 .menu-item:hover {
     transform: scale(1.05);
-    border-color: #4CAF50; /* Warna border hijau saat hover */
+    border-color: #4CAF50;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -149,17 +150,20 @@ h2 {
 .order-details label {
     display: block;
     margin: 5px 0;
+    font-size: 1rem; /* Ukuran font lebih kecil */
+    font-weight: normal;
+    color: #333;
 }
 
 .order-details input[type="number"] {
-    width: 80px; /* Lebar input diperbesar */
-    padding: 5px; /* Padding ditambahkan agar lebih besar */
-    font-size: 1.1rem; /* Ukuran font lebih besar */
+    width: 60px;
+    padding: 5px;
+    font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     text-align: center;
     margin: 5px auto;
-    transition: border-color 0.3s ease; /* Efek transisi border */
+    transition: border-color 0.3s ease;
 }
 
 /* Topping Section (Sayuran dan Saus) */
@@ -175,57 +179,32 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* Pastikan label memiliki jarak cukup untuk checkbox */
 .topping-section label {
-    display: inline-flex;      /* Menggunakan flex agar checkbox dan teks sejajar */
-    align-items: center;       /* Menyelaraskan checkbox dengan teks secara vertikal */
+    display: inline-flex;
+    align-items: center;
     margin: 5px 0;
     font-size: 1rem;
     color: #555;
     cursor: pointer;
-    padding-left: 35px;        /* Memberikan ruang untuk checkbox di kiri */
+    padding-left: 35px;
     position: relative;
 }
 
-.topping-section label:hover {
-    transform: scale(1.05); /* Efek hover pada topping */
-}
-
 .topping-section input[type="checkbox"] {
-    margin-right: 10px;  /* Jarak antara checkbox dan teks */
-    transform: scale(1.3);  /* Membesarkan ukuran checkbox */
-    vertical-align: middle;  /* Menyelaraskan checkbox dengan teks */
+    margin-right: 10px;
+    transform: scale(1.3);
+    vertical-align: middle;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;  /* Efek transform pada checkbox */
-    z-index: 1;  /* Menjaga checkbox di bawah teks */
+    transition: transform 0.2s ease-in-out;
 }
 
 /* Ketika checkbox dicentang */
 .topping-section input[type="checkbox"]:checked {
-    transform: scale(1.4);  /* Membesarkan checkbox ketika dipilih */
+    transform: scale(1.4);
 }
 
 .topping-section label span {
-    z-index: 2;  /* Menjaga teks berada di atas checkbox */
-}
-
-/* Pastikan checkbox berada pada posisi yang tepat */
-.topping-section input[type="checkbox"]:not(:checked) {
-    position: relative;
-    left: 0;
-    top: 0;
-}
-
-.topping-section input[type="checkbox"]:checked {
-    position: relative;
-    left: 0;
-    top: 0;
-}
-
-/* Mengatur posisi checkbox agar tidak menutupi teks */
-.topping-section label {
-    position: relative;
-    padding-left: 25px; /* Memberikan ruang agar checkbox tidak menutupi teks */
+    z-index: 2;
 }
 
 /* Formulir pesanan */
@@ -234,7 +213,6 @@ form {
     text-align: center;
 }
 
-/* Input teks untuk nama */
 form input[type="text"] {
     padding: 10px;
     width: 200px;
@@ -245,7 +223,7 @@ form input[type="text"] {
 /* Tombol kirim pesanan */
 form button {
     padding: 10px 20px;
-    background-color: #4CAF50; /* Warna hijau */
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
@@ -271,49 +249,48 @@ footer {
     text-align: center;
     margin-top: 40px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* Transparansi footer */
+    background-color: rgba(255, 255, 255, 0.9);
     border-top: 1px solid rgba(221, 221, 221, 0.5);
     opacity: 0;
-    animation: fadeInUp 1s 1s forwards; /* Animasi muncul perlahan */
+    animation: fadeInUp 1s 1s forwards;
 }
 
 /* Teks Copyright */
 footer p {
-    font-size: 1.2rem; /* Ukuran font copyright */
-    color: #4CAF50; /* Warna hijau konsisten dengan tema */
-    margin-top: 0; /* Menghilangkan margin atas */
-    font-weight: normal; /* Mengatur berat font agar tidak terlalu tebal */
+    font-size: 1.2rem;
+    color: #4CAF50;
+    margin-top: 0;
+    font-weight: normal;
     opacity: 0;
-    animation: fadeInUp 1s 1.5s forwards; /* Efek animasi untuk copyright */
+    animation: fadeInUp 1s 1.5s forwards;
 }
 
 /* Total Cost */
 .total-cost {
     font-size: 1.5rem;
     margin-top: 20px;
-    color: #4CAF50; /* Hijau untuk total cost */
-    font-weight: normal;
+    color: #4CAF50;
 }
 
 /* Teks Paling Bawah */
 .bottom-text {
     font-size: 1.5rem;
-    color: #4CAF50; /* Warna hijau konsisten */
+    color: #4CAF50;
     margin-top: 20px;
     padding: 10px;
     background-color: #fff;
-    border-top: 2px solid #4CAF50; /* Garis atas hijau seperti judul */
+    border-top: 2px solid #4CAF50;
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
     opacity: 0;
-    animation: fadeInUp 1s 1.5s forwards; /* Efek animasi fadeInUp setelah beberapa detik */
+    animation: fadeInUp 1s 1.5s forwards;
 }
 
 /* Responsif untuk layar kecil */
 @media (max-width: 768px) {
     .menu-item {
-        width: 45%; /* Membuat item menu lebih besar pada layar kecil */
+        width: 45%;
     }
 
     h1 {
@@ -324,17 +301,13 @@ footer p {
         font-size: 1.5rem;
     }
 
-    form input[type="text"] {
-        width: 100%; /* Membuat input teks lebih lebar di layar kecil */
-    }
-
+    form input[type="text"],
     form button {
-        width: 100%; /* Tombol kirim pesanan juga lebar penuh */
+        width: 100%;
     }
 
-    /* Menyesuaikan lebar petunjuk pada layar kecil */
     .instructions {
-        width: 90%; /* Lebar lebih fleksibel pada layar kecil */
+        width: 90%;
     }
 }
 
@@ -352,11 +325,11 @@ footer p {
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    position: absolute; /* Posisi tetap */
-    top: 40px;       /* Jarak dari atas */
-    left: 20px;      /* Jarak dari kiri */
-    opacity: 1;      /* Mulai dengan terlihat */
-    animation: fadeInLeft 1s ease-out forwards;  /* Animasi muncul dari kiri */
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    opacity: 1;
+    animation: fadeInLeft 1s ease-out forwards;
 }
 
 .back-button .back-icon {
@@ -364,7 +337,6 @@ footer p {
     font-size: 16px;
 }
 
-/* Efek Hover dan Active */
 .back-button:hover {
     background-color: #45a049;
     transform: translateY(-3px);
@@ -379,48 +351,23 @@ footer p {
     box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
 }
 
-/* Animasi-fade-in */
+/* Animasi */
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-/* Animasi-fade-in-up */
 @keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Animasi slide dari atas */
 @keyframes slideFromTop {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Animasi slide dari kiri untuk tombol kembali */
 @keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    0% { opacity: 0; transform: translateX(-30px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
