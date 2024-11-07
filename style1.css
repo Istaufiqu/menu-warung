@@ -265,7 +265,7 @@ p {
 
 /* Order Quantity - Memperbesar kotak jumlah */
 .order-details input[type="number"] {
-    width: 70px; /* Lebar input lebih besar */
+    width: 60px; /* Lebar input lebih besar */
     padding: 5px; /* Padding lebih besar untuk ruang lebih luas di dalam kotak */
     font-size: 1rem; /* Memperbesar ukuran font di dalam kotak */
     border: 1px solid rgba(221, 221, 221, 0.7); /* Transparansi border */
