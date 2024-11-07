@@ -46,19 +46,19 @@ header {
 }
 
 header img {
-    width: 50%;
-    max-width: 200px;
+    width: 40%;
+    max-width: 180px;
     border-radius: 5px;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: 10px 0;
     color: #4CAF50;
 }
 
 h2 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     margin: 20px 0;
     color: #333;
     text-align: center;
@@ -177,9 +177,9 @@ h2 {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    width: 22%; /* Menurunkan lebar menu item */
+    width: 20%; /* Menurunkan lebar menu item */
     margin: 10px;
-    padding: 15px;
+    padding: 12px;
     background-color: rgba(255, 255, 255, 0.7); /* Transparansi latar belakang menu item */
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi tambahan */
@@ -194,7 +194,7 @@ h2 {
 
 .menu-item img {
     width: 100%;
-    height: 150px;
+    height: 120px;
     object-fit: cover;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -202,12 +202,12 @@ h2 {
 }
 
 .menu-item:hover img {
-    transform: scale(1.1); /* Gambar sedikit membesar saat hover */
+    transform: scale(1.05); /* Gambar sedikit membesar saat hover */
 }
 
 /* Mengurangi ukuran font judul menu dan deskripsi */
 h3 {
-    font-size: 1.4rem; /* Ukuran huruf lebih kecil */
+    font-size: 1.2rem; /* Ukuran huruf lebih kecil */
     margin: 10px 0;
     font-weight: bold; /* Menebalkan judul menu */
     color: #333;
@@ -219,7 +219,7 @@ h3 {
 }
 
 p {
-    font-size: 1.2rem; /* Ukuran font harga yang lebih besar */
+    font-size: 1rem; /* Ukuran font harga yang lebih besar */
     color: #4CAF50;
     font-weight: bold; /* Menebalkan deskripsi menu */
     transition: color 0.3s ease;
@@ -234,8 +234,8 @@ p {
     position: absolute; /* Posisi absolute untuk mengatur letak checkbox di atas gambar */
     top: 10px;  /* Jarak dari atas */
     left: 10px;  /* Jarak dari kiri */
-    width: 30px;  /* Ukuran kotak ceklis lebih besar */
-    height: 30px; /* Tinggi kotak ceklis lebih besar */
+    width: 25px;  /* Ukuran kotak ceklis lebih besar */
+    height: 25px; /* Tinggi kotak ceklis lebih besar */
     z-index: 10; /* Agar ceklis berada di atas gambar */
 }
 
@@ -252,48 +252,76 @@ p {
 
 /* Order Quantity - Memperbesar kotak jumlah */
 .order-details input[type="number"] {
-    width: 80px; /* Lebar input lebih besar */
+    width: 70px; /* Lebar input lebih besar */
     padding: 5px; /* Padding lebih besar untuk ruang lebih luas di dalam kotak */
-    font-size: 1.1rem; /* Memperbesar ukuran font di dalam kotak */
+    font-size: 1rem; /* Memperbesar ukuran font di dalam kotak */
     border: 1px solid rgba(221, 221, 221, 0.7); /* Transparansi border */
     border-radius: 5px;
     text-align: center; /* Teks tetap terpusat di dalam kotak */
     margin: 10px auto; /* Memberikan jarak atas bawah agar terlihat rapi */
 }
 
-/* Toppings Section */
+/* Topping Section */
 .topping-selection {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Mengurangi jarak antar topping */
     margin: 20px 0;
 }
 
-/* Toppings Section - Saus Checkbox */
 .topping-selection input[type="checkbox"] {
-    transform: scale(1.5); /* Membuat checkbox lebih besar */
-    margin-right: 15px; /* Memberikan jarak lebih besar antara checkbox dan label */
+    width: 18px; /* Ukuran checkbox lebih kecil */
+    height: 18px; /* Ukuran checkbox lebih kecil */
+    margin-right: 8px; /* Jarak antara checkbox dan label */
+    transition: transform 0.3s ease; /* Animasi pada saat checkbox dipilih */
+}
+
+/* Hover pada Checkbox */
+.topping-selection input[type="checkbox"]:hover {
+    transform: scale(1.2); /* Membuat checkbox sedikit lebih besar saat hover */
 }
 
 .topping-selection label {
-    display: inline-block;
-    margin: 5px;
-    padding: 10px 10px;
-    background-color: rgba(255, 255, 255, 0.9); /* Transparansi pada label topping */
-    border: 1px solid rgba(0, 0, 0, 0.2); /* Transparansi border */
-    border-radius: 2px;
-    font-size: 1.2rem; /* Menambah ukuran font label agar lebih serasi dengan checkbox */
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.topping-selection input[type="checkbox"]:hover + label {
-    background-color: rgba(240, 240, 240, 0.7); /* Hover effect dengan transparansi */
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 8px 12px; /* Padding lebih kecil */
+    border-radius: 5px; /* Sudut lebih kecil */
+    font-size: 0.9rem; /* Ukuran font sedikit lebih kecil */
+    color: #333;
+    border: 2px solid #ddd;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
+/* Hover effect pada label */
+.topping-selection input[type="checkbox"]:hover + label {
+    background-color: rgba(240, 240, 240, 0.9);
+    border-color: #4CAF50;
+}
+
+/* Efek ketika checkbox dipilih */
 .topping-selection input[type="checkbox"]:checked + label {
     background-color: #4CAF50;
     color: white;
+    border-color: #4CAF50;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* Responsiveness untuk perangkat kecil */
+@media (max-width: 768px) {
+    .topping-selection label {
+        font-size: 0.8rem; /* Ukuran font lebih kecil di perangkat mobile */
+        padding: 6px 10px; /* Padding lebih kecil di perangkat mobile */
+    }
+
+    .topping-selection input[type="checkbox"] {
+        width: 16px; /* Checkbox lebih kecil di perangkat mobile */
+        height: 16px; /* Checkbox lebih kecil di perangkat mobile */
+    }
+}
+
 
 /* Total Cost Section */
 .total-cost {
@@ -309,21 +337,22 @@ form {
 }
 
 form input[type="text"] {
-    padding: 10px;
-    width: 200px;
+    padding: 8px;
+    width: 180px;
+    font-size: 1rem; /* Ukuran font lebih kecil */
     border: 1px solid rgba(221, 221, 221, 0.7); /* Transparansi border */
     border-radius: 5px;
 }
 
 form button {
-    padding: 10px 20px;
+    padding: 8px 16px;
     background-color: #4CAF50; 
     color: white; 
     border: none; 
     border-radius: 5px; 
     cursor: pointer; 
     margin-top: 10px;
-    font-size: 1.2rem; 
+    font-size: 1.1rem; 
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
@@ -360,7 +389,7 @@ footer {
 
 /* Animasi untuk teks di dalam footer */
 footer p {
-    font-size: 1.2rem; /* Ukuran font copyright */
+    font-size: 1rem; /* Ukuran font copyright */
     color: #4CAF50; /* Warna hijau konsisten dengan tema */
     margin-top: 0;
     font-weight: normal; /* Mengatur berat font agar tidak terlalu tebal */
@@ -372,7 +401,7 @@ footer p {
 
 /* Teks Paling Bawah - Menyesuaikan garis di bawah */
 .bottom-text {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #4CAF50;
     margin-top: 20px;
     padding: 10px;
