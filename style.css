@@ -5,15 +5,15 @@
     box-sizing: border-box;
 }
 
-/* Styling untuk body */
+/* Styling untuk body dan html */
 body, html {
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #e1eaff, #f5f5f5); /* Gradasi lembut di background */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px; /* Padding dikurangi untuk membuat elemen lebih rapat */
+    justify-content: center;   /* Memastikan konten di tengah secara horizontal */
+    align-items: center;       /* Memastikan konten di tengah secara vertikal */
+    padding: 0;                /* Menghilangkan padding default body */
 }
 
 /* Container utama */
@@ -21,16 +21,17 @@ body, html {
     width: 100%;
     max-width: 500px; /* Lebar kontainer sedikit lebih besar */
     background-color: white;
-    border-radius: 12px; /* Sudut lebih halus */
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* Bayangan halus dengan sedikit kedalaman */
+    border-radius: 15px; /* Sudut lebih halus */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Bayangan halus dengan sedikit kedalaman */
     overflow: hidden;
     text-align: center;
     padding: 25px; /* Padding sedikit lebih besar */
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk efek hover */
 }
 
 .container:hover {
     transform: scale(1.02); /* Efek zoom ringan saat hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat saat hover */
 }
 
 /* Styling Header */
@@ -45,13 +46,14 @@ body, html {
     width: 110px; /* Ukuran logo sedikit lebih besar */
     margin-bottom: 20px; /* Jarak antara logo dan teks lebih rapat */
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /* Efek transisi rotasi */
 }
 
 .logo:hover {
     transform: rotate(360deg); /* Efek rotasi pada logo saat hover */
 }
 
+/* Judul dan Subjudul */
 h1 {
     font-size: 32px; /* Ukuran font sedikit lebih besar */
     font-weight: bold;
@@ -59,7 +61,7 @@ h1 {
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-bottom: 10px; /* Margin antara judul dan subjudul sedikit lebih besar */
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; /* Transisi untuk efek hover pada warna judul */
 }
 
 h1:hover {
@@ -77,10 +79,18 @@ h2 {
 /* Menu styling */
 .menu {
     background-color: #fff;
-    padding: 15px 0; /* Padding menu sedikit lebih kecil untuk memperkecil jarak antar menu */
-    margin-bottom: 15px; /* Margin bawah menu sedikit lebih kecil */
+    padding: 20px 0;
+    margin-bottom: 25px;
+    border-radius: 15px; /* Sudut lebih bulat untuk memberi kesan lebih modern */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Bayangan lebih halus dengan kedalaman */
+    transition: all 0.3s ease; /* Transisi untuk efek hover dan perubahan */
 }
 
+.menu:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Efek bayangan lebih kuat saat hover */
+}
+
+/* Menu Item styling */
 .menu ul {
     list-style-type: none;
     padding: 0;
@@ -88,38 +98,115 @@ h2 {
 }
 
 .menu-item {
-    display: block;
+    display: flex;
+    align-items: center; /* Menyusun ikon dan teks sejajar */
     color: #333;
     text-decoration: none;
-    font-size: 20px; /* Ukuran font lebih besar untuk item menu */
+    font-size: 20px;
     font-weight: 500;
-    padding: 12px 20px; /* Padding item menu sedikit lebih kecil */
-    margin: 6px 0; /* Jarak antar item lebih rapat */
+    padding: 14px 25px;
+    margin: 8px 0;
     background-color: #fafafa;
-    border-radius: 10px;
+    border-radius: 12px; /* Sudut lebih bulat */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan ringan */
     transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Bayangan ringan */
+    overflow: hidden;
 }
 
 .menu-item:hover {
-    background-color: #e8e8e8; /* Latar belakang sedikit lebih gelap saat hover */
-    transform: translateY(-5px); /* Efek terangkat lebih jelas saat hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Bayangan lebih jelas saat hover */
-    color: #6a5acd; /* Warna teks berubah saat hover */
+    background-color: #e8e8e8; /* Latar belakang lebih gelap */
+    transform: translateY(-4px); /* Efek terangkat lebih halus */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar saat hover */
+    color: #6a5acd; /* Teks berubah menjadi ungu muda */
 }
 
-/* Media Queries untuk Responsivitas */
+.menu-item i {
+    font-size: 1.5rem; /* Ukuran ikon lebih besar */
+    margin-right: 12px; /* Jarak antara ikon dan teks */
+    transition: transform 0.3s ease; /* Efek transisi untuk ikon */
+}
+
+.menu-item:hover i {
+    transform: translateX(8px); /* Efek geser ikon sedikit ke kanan saat hover */
+}
+
+/* Menu Item aktif */
+.menu-item.active {
+    background-color: #6a5acd; /* Latar belakang ungu muda */
+    color: white;
+}
+
+.menu-item.active:hover {
+    background-color: #5a4cbf; /* Warna lebih gelap saat hover */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3); /* Bayangan lebih kuat saat hover */
+}
+
+/* Kotak Input Jumlah Pesanan */
+.order-details {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.order-details label {
+    display: block;
+    margin: 5px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.order-details input[type="number"] {
+    width: 80px; /* Lebar lebih kecil */
+    padding: 8px; /* Padding lebih besar agar lebih nyaman */
+    font-size: 1.2rem; /* Ukuran font lebih besar */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.order-details input[type="number"]:focus {
+    border-color: #6a5acd; /* Warna border ungu muda saat fokus */
+    box-shadow: 0 0 10px rgba(106, 92, 205, 0.4); /* Efek fokus dengan bayangan */
+    outline: none; /* Menghilangkan outline default */
+}
+
+.order-details input[type="number"]:hover {
+    border-color: #6a5acd; /* Warna border ungu muda saat hover */
+}
+
+/* Tombol Kirim Pesanan */
+form button {
+    padding: 10px 20px;
+    background-color: #6a5acd; /* Warna ungu muda */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #5a4cbf; /* Warna lebih gelap saat hover */
+    transform: translateY(-3px); /* Efek terangkat saat hover */
+}
+
+form button:active {
+    transform: translateY(1px); /* Efek ditekan pada tombol */
+}
+
+/* Responsif untuk perangkat kecil */
 @media (max-width: 768px) {
     .container {
         width: 90%;
     }
 
     h1 {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     h2 {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .logo {
@@ -128,28 +215,27 @@ h2 {
 
     .menu-item {
         font-size: 18px;
-        padding: 12px 18px;
-        margin: 5px 0; /* Jarak lebih rapat antar item menu */
+        padding: 15px 20px;
+        margin: 8px 0;
     }
 }
 
 @media (max-width: 480px) {
     .container {
         width: 100%;
-        padding: 15px;
+        padding: 20px;
     }
 
     h1 {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     .logo {
-        width: 80px;
+        width: 90px;
     }
 
     .menu-item {
         font-size: 16px;
-        padding: 10px 15px;
-        margin: 4px 0; /* Jarak lebih rapat pada perangkat kecil */
+        padding: 12px 18px;
     }
 }
