@@ -81,10 +81,9 @@ h2 {
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    position: absolute;  /* Tombol tetap di posisi yang sama saat scroll */
-    top: 50px; /* Jarak dari atas */
-    left: 20px; /* Jarak dari kiri */
-    z-index: 9999; /* Pastikan tombol berada di atas elemen lainnya */
+    position: absolute;
+    top: 0px; /* Jarak dari atas */
+    left: 0px; /* Jarak dari kiri */
     opacity: 0;  /* Mulai dengan transparan */
     animation: fadeInLeft 1s ease-out forwards;  /* Animasi muncul dari kiri */
     animation-delay: 0.5s;  /* Memberikan delay sebelum animasi dimulai */
@@ -124,8 +123,6 @@ h2 {
         transform: translateX(0);  /* Bergerak ke posisi normal */
     }
 }
-
-
 
 /* Petunjuk Pemesanan - Menyesuaikan dengan template */
 .instructions {
