@@ -81,7 +81,7 @@ h2 {
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    position: fixed;  /* Tombol tetap di posisi yang sama saat scroll */
+    position: absolute;  /* Tombol tetap di posisi yang sama saat scroll */
     top: 50px; /* Jarak dari atas */
     left: 20px; /* Jarak dari kiri */
     z-index: 9999; /* Pastikan tombol berada di atas elemen lainnya */
