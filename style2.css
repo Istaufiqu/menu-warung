@@ -74,7 +74,7 @@ h2 {
     max-width: 800px; /* Membatasi lebar agar tidak terlalu lebar */
     margin: 0 auto; /* Membuatnya terpusat secara horizontal */
     opacity: 0;
-    animation: fadeIn 1s forwards; /* Animasi fade-in untuk petunjuk */
+    animation: fadeInUp 1s forwards; /* Menambahkan animasi fadeInUp */
 }
 
 .instructions p {
@@ -271,8 +271,20 @@ footer {
     text-align: center;
     margin-top: 40px;
     padding: 20px;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.9); /* Transparansi footer */
+    border-top: 1px solid rgba(221, 221, 221, 0.5);
+    opacity: 0;
+    animation: fadeInUp 1s 1s forwards; /* Animasi muncul perlahan */
+}
+
+/* Teks Copyright */
+footer p {
+    font-size: 1.2rem; /* Ukuran font copyright */
+    color: #4CAF50; /* Warna hijau konsisten dengan tema */
+    margin-top: 0; /* Menghilangkan margin atas */
+    font-weight: normal; /* Mengatur berat font agar tidak terlalu tebal */
+    opacity: 0;
+    animation: fadeInUp 1s 1.5s forwards; /* Efek animasi untuk copyright */
 }
 
 /* Total Cost */
@@ -281,6 +293,21 @@ footer {
     margin-top: 20px;
     color: #4CAF50; /* Hijau untuk total cost */
     font-weight: normal;
+}
+
+/* Teks Paling Bawah */
+.bottom-text {
+    font-size: 1.5rem;
+    color: #4CAF50; /* Warna hijau konsisten */
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 2px solid #4CAF50; /* Garis atas hijau seperti judul */
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInUp 1s 1.5s forwards; /* Efek animasi fadeInUp setelah beberapa detik */
 }
 
 /* Responsif untuk layar kecil */
@@ -311,25 +338,26 @@ footer {
     }
 }
 
-/* Tombol kembali ke halaman home */
+/* Back Button */
 .back-button {
-    background-color: #4CAF50; /* Hijau pada tombol kembali */
+    background-color: #4CAF50;
     color: white;
     padding: 6px 15px;
     font-size: 14px;
     font-weight: bold;
     border: none;
     border-radius: 20px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
     display: inline-flex;
     align-items: center;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    opacity: 0;
-    animation: fadeInLeft 1s 1s forwards; /* Animasi muncul dari kiri */
+    position: fixed;  /* Gunakan position fixed agar tombol tetap di posisi yang sama */
+    top: 40px; /* Jarak dari atas */
+    left: 120px; /* Jarak dari kiri */
+    opacity: 0;  /* Mulai dengan transparan */
+    z-index: 100; /* Pastikan z-index cukup tinggi agar tombol di atas elemen lainnya */
+    animation: fadeInLeft 1s ease-out forwards;  /* Animasi muncul dari kiri */
 }
 
 .back-button .back-icon {
