@@ -2,6 +2,7 @@
 function sendOrder() {
     let totalCost = 0;
     let orderDetails = '';
+    let toppingDetails = ''; // Menyimpan informasi topping
     let orderValid = true;
     let menuSelected = false;
     let errorMessages = [];
@@ -31,23 +32,24 @@ function sendOrder() {
         // Cek apakah item dipilih dan jumlah lebih dari 0
         if (checkbox.checked && quantity > 0) {
             totalCost += item.price * quantity;
-            orderDetails += `${item.name}: ${quantity} x Rp.${item.price.toLocaleString()} = Rp.${(item.price * quantity).toLocaleString()}\n`;
+            orderDetails += `- ${item.name} x ${quantity} = Rp.${(item.price * quantity).toLocaleString()}\n`;
             menuSelected = true;
+
+            // Proses topping sayuran dan saus
+            ['sayuran', 'saus'].forEach(type => {
+                const toppings = document.querySelectorAll(`input[class="${type}${item.name.replace(' ', '')}"]:checked`);
+                if (toppings.length > 0) {
+                    toppingDetails += `${capitalizeFirstLetter(type)} untuk ${item.name}:\n`;
+                    toppings.forEach(topping => {
+                        toppingDetails += `- ${topping.value}\n`;
+                    });
+                    toppingDetails += '\n';  // Menambahkan jarak setelah setiap topping
+                }
+            });
         } else if (checkbox.checked && quantity === 0) {
             errorMessages.push(`Jumlah pesanan untuk ${item.name} tidak boleh 0!`);
             orderValid = false;
         }
-
-        // Proses topping sayuran dan saus
-        ['sayuran', 'saus'].forEach(type => {
-            const toppings = document.querySelectorAll(`input[class="${type}${item.name.replace(' ', '')}"]:checked`);
-            if (toppings.length > 0) {
-                orderDetails += `Topping ${type.charAt(0).toUpperCase() + type.slice(1)} untuk ${item.name}:\n`;
-                toppings.forEach(topping => {
-                    orderDetails += `- ${topping.value}\n`;
-                });
-            }
-        });
     });
 
     // Validasi apakah menu dipilih
@@ -62,8 +64,28 @@ function sendOrder() {
         return;
     }
 
+    // Mendapatkan waktu saat ini
+    const currentDate = new Date();
+    const day = currentDate.toLocaleDateString('id-ID', { weekday: 'long' });
+    const time = currentDate.toLocaleTimeString('id-ID');
+
+    // Format output pesan untuk WhatsApp
+    const formattedMessage = `
+Pesanan oleh: ${name}
+
+Tanggal: ${day}, ${currentDate.toLocaleDateString('id-ID')} | Jam: ${time}
+
+Menu:
+${orderDetails}
+
+Topping:
+${toppingDetails}
+
+Total: Rp. ${totalCost.toLocaleString()}
+    `;
+
     // Kirim pesan ke WhatsApp
-    const whatsappMessage = encodeURIComponent(`Pesanan baru dari: ${name}\n\n${orderDetails}\nTotal: Rp.${totalCost.toLocaleString()}`);
+    const whatsappMessage = encodeURIComponent(formattedMessage);
     const whatsappUrl = `https://wa.me/?text=${whatsappMessage}`;
     window.open(whatsappUrl, '_blank');
 
@@ -71,12 +93,17 @@ function sendOrder() {
     document.getElementById('totalCost').innerHTML = `Total: Rp.${totalCost.toLocaleString()}`;
 
     // Kirim pesan order dan beri notifikasi sukses
-    alert(`Pesanan Anda berhasil dikirim!\n\nNama: ${name}\n${orderDetails}\nTotal: Rp.${totalCost.toLocaleString()}`);
+    alert(`Pesanan Anda berhasil dikirim!\n\n${formattedMessage}`);
 
     // Redirect ke halaman utama setelah 0.1 detik
     setTimeout(() => {
         window.location.href = "index.html";  // Ganti dengan URL halaman Home Anda
     }, 100);
+}
+
+// Fungsi untuk mengkapitalisasi huruf pertama pada string
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // Fungsi untuk menghitung total harga secara dinamis saat ada perubahan
@@ -135,31 +162,5 @@ window.addEventListener("load", function() {
     const scrollPosition = localStorage.getItem("scrollPosition");
     if (scrollPosition) {
         window.scrollTo(0, scrollPosition); // Mengembalikan posisi scroll
-    }
-});
-
-// Fungsi untuk menangani klik item menu
-document.querySelectorAll('.menu-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const menuContent = item.querySelector('.menu-description');
-        
-        // Toggle visibilitas konten ketika item menu diklik
-        if (menuContent) {
-            menuContent.style.display = (menuContent.style.display === 'none') ? 'block' : 'none';
-        }
-    });
-});
-
-// Menangani event checkbox untuk menu Beef secara dinamis
-document.querySelector('#beef-checkbox').addEventListener('change', function() {
-    const beefItem = document.querySelector('.menu-item.beef');
-
-    // Mengubah tampilan ketika checkbox dicentang
-    if (this.checked) {
-        beefItem.style.backgroundColor = '#4CAF50'; // Contoh perubahan background
-        beefItem.querySelector('h3').style.color = '#fff'; // Ganti warna nama
-    } else {
-        beefItem.style.backgroundColor = ''; // Kembalikan ke semula
-        beefItem.querySelector('h3').style.color = ''; // Kembalikan warna nama
     }
 });
