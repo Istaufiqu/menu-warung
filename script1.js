@@ -1,4 +1,4 @@
-// Mengambil elemen-elemen yang diperlukan
+// Mengambil elemen-elemen yang diperlukan 
 const orderForm = document.querySelector('form');
 const totalCostDisplay = document.getElementById('totalCost');
 const nameInput = document.getElementById('name');
@@ -23,6 +23,39 @@ function calculateTotal() {
     totalCostDisplay.textContent = `Total: Rp.${total.toLocaleString()}`;
 }
 
+// Fungsi untuk mendapatkan waktu saat ini dalam format HH:MM:SS
+function updateTime() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    document.getElementById('currentTime').textContent = `Waktu Saat Ini: ${timeString}`;
+}
+
+// Fungsi untuk mendapatkan tanggal dan waktu dalam format yang diinginkan
+function getFormattedDateTime() {
+    const now = new Date();
+
+    // Daftar nama hari
+    const daysOfWeek = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+    const dayName = daysOfWeek[now.getDay()]; // Mengambil nama hari
+    
+    // Mengambil tanggal, bulan, tahun
+    const day = now.getDate().toString().padStart(2, '0');
+    const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Bulan dimulai dari 0
+    const year = now.getFullYear();
+
+    // Mengambil jam, menit, detik
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    // Format tanggal dan waktu: Hari, DD/MM/YYYY | Jam: HH.MM.SS
+    return `${dayName}, ${day}/${month}/${year} | Jam: ${hours}.${minutes}.${seconds}`;
+}
+
 // Fungsi untuk mengirimkan pesanan
 function sendOrder() {
     const name = nameInput.value.trim();
@@ -31,9 +64,9 @@ function sendOrder() {
 
     // Validasi untuk memastikan nama diisi
     if (!name) {
-        errorMessages.push('Nama Anda wajib diisi!');
-        orderValid = false;
+        validationMessages.push('Nama Anda wajib diisi!');
     }
+    
     // Validasi untuk memastikan ada menu yang dipilih
     const selectedMenuItems = [...menuItems].filter(item => item.checked);
     if (selectedMenuItems.length === 0) {
@@ -43,7 +76,6 @@ function sendOrder() {
     // Validasi untuk memastikan quantity lebih dari 0
     let validQuantity = true;
     qtyInputs.forEach((input, index) => {
-        // Mengecek apakah quantity valid hanya untuk item yang dipilih
         if (menuItems[index].checked && parseInt(input.value) <= 0) {
             validQuantity = false;
         }
@@ -59,7 +91,9 @@ function sendOrder() {
         return;  // Jangan lanjutkan pengiriman pesanan
     }
 
-    let orderDetails = `Pesanan oleh: ${name}\n\nMenu:\n`;
+    let orderDetails = `Pesanan oleh: ${name}\n`;
+    orderDetails += `Tanggal: ${getFormattedDateTime()}\n\n`;  // Menambahkan tanggal dan waktu saat ini
+    orderDetails += `Menu:\n`;
 
     let total = 0;
 
@@ -109,9 +143,10 @@ function sendOrder() {
     alert(`Pesanan Anda telah terkirim!\n\nRincian Pesanan:\n${orderDetails}`);
 
     setTimeout(() => {
-    window.location.href = "index.html";  // Ganti dengan URL halaman Home Anda
+        window.location.href = "index.html";  // Ganti dengan URL halaman Home Anda
     }, 100);  // Redirect setelah 3 detik
 }
+
 // Menambahkan event listener untuk perubahan pada menu dan topping
 menuItems.forEach(item => {
     item.addEventListener('change', calculateTotal); // Menghitung total saat checkbox menu berubah
@@ -133,3 +168,6 @@ orderForm.addEventListener('submit', (event) => {
 
 // Memanggil fungsi calculateTotal pada awal agar total harga tampil (0)
 calculateTotal();
+
+// Memanggil fungsi updateTime setiap detik untuk menampilkan waktu real-time
+setInterval(updateTime, 1000);
