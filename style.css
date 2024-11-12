@@ -14,6 +14,7 @@ body, html {
     justify-content: center;   /* Memastikan konten di tengah secara horizontal */
     align-items: center;       /* Memastikan konten di tengah secara vertikal */
     padding: 0;                /* Menghilangkan padding default body */
+    text-align: center;        /* Menengahkan semua teks di dalam body secara default */
 }
 
 /* Container utama */
@@ -21,17 +22,21 @@ body, html {
     width: 100%;
     max-width: 500px; /* Lebar kontainer sedikit lebih besar */
     background-color: white;
-    border-radius: 15px; /* Sudut lebih halus */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Bayangan halus dengan sedikit kedalaman */
+    border-radius: 20px; /* Sudut lebih halus dengan border-radius lebih besar */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* Bayangan lebih halus dengan sedikit kedalaman */
     overflow: hidden;
-    text-align: center;
     padding: 25px; /* Padding sedikit lebih besar */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk efek hover */
+    display: flex;              /* Menggunakan flexbox untuk menata konten */
+    flex-direction: column;     /* Menyusun elemen secara vertikal */
+    justify-content: center;    /* Memastikan elemen di tengah secara vertikal */
+    align-items: center;        /* Menjaga elemen di tengah secara horizontal */
 }
 
+/* Efek hover pada container */
 .container:hover {
     transform: scale(1.02); /* Efek zoom ringan saat hover */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat saat hover */
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat saat hover */
 }
 
 /* Styling Header */
@@ -81,8 +86,8 @@ h2 {
     background-color: #fff;
     padding: 20px 0;
     margin-bottom: 25px;
-    border-radius: 15px; /* Sudut lebih bulat untuk memberi kesan lebih modern */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Bayangan lebih halus dengan kedalaman */
+    border-radius: 20px; /* Sudut lebih halus untuk menu */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Bayangan lebih halus dengan kedalaman */
     transition: all 0.3s ease; /* Transisi untuk efek hover dan perubahan */
 }
 
@@ -156,12 +161,13 @@ h2 {
 
 .order-details input[type="number"] {
     width: 80px; /* Lebar lebih kecil */
-    padding: 8px; /* Padding lebih besar agar lebih nyaman */
+    padding: 10px; /* Padding lebih besar agar lebih nyaman */
     font-size: 1.2rem; /* Ukuran font lebih besar */
     border: 2px solid #ddd;
-    border-radius: 8px;
+    border-radius: 12px; /* Border lebih halus */
     text-align: center;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan ringan pada input */
 }
 
 .order-details input[type="number"]:focus {
@@ -180,15 +186,17 @@ form button {
     background-color: #6a5acd; /* Warna ungu muda */
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px; /* Sudut tombol lebih bulat */
     font-size: 1.2rem;
     transition: all 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan pada tombol */
 }
 
 form button:hover {
     background-color: #5a4cbf; /* Warna lebih gelap saat hover */
     transform: translateY(-3px); /* Efek terangkat saat hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar saat hover */
 }
 
 form button:active {
