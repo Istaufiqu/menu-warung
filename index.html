@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Navigasi Terpisah dengan Link</title>
+    <title>Warung Rumahku by.Arkana</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -15,17 +16,20 @@
             <h2>By. Arkana</h2>
         </header>
 
+        <!-- Tombol untuk membuka menu (akan hilang setelah menu terbuka) -->
+        <button class="open-btn" id="openMenuBtn" onclick="toggleMenu()">Buka Menu <i class="fas fa-chevron-down"></i></button>
+
         <!-- Menu 1 -->
         <div class="menu" id="menu1-nav">
             <ul>
-                <li><a href="menu1.html" class="menu-item">Menu Bakaran</a></li>
+                <li><a href="menu1.html" class="menu-item"><i class="fas fa-fire"></i> Menu Bakaran</a></li>
             </ul>
         </div>
 
         <!-- Menu 2 -->
         <div class="menu" id="menu2-nav">
             <ul>
-                <li><a href="menu2.html" class="menu-item" >Menu Burger & Hotdog</a></li>
+                <li><a href="menu2.html" class="menu-item"><i class="fas fa-hamburger"></i> Menu Burger & Hotdog</a></li>
             </ul>
         </div>
     </div>
