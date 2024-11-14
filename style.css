@@ -8,30 +8,44 @@
 /* Styling untuk body dan html */
 body, html {
     height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #00ddff00; /* Warna krem menyerupai kertas */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0;
-    text-align: center;
 }
 
 /* Container utama */
-.container {
-    width: 100%;
+.book-container {
+    width: 80%;
     max-width: 600px;
-    background-color: #fff;
+    background-color: #fff; /* Warna latar putih untuk halaman buku */
     border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+    padding: 20px;
     overflow: hidden;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    transition: all 0.3s ease;
+}
+
+/* Styling untuk teks */
+.book-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.book-container p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Gambar latar belakang */
+.book-container {
+    background-image: url('path/to/your/book-texture.jpg'); /* Ganti dengan path gambar tekstur */
+    background-size: cover; /* Mengisi seluruh area */
+    background-position: center; /* Memusatkan gambar */
+    background-repeat: no-repeat; /* Tidak mengulang gambar */
 }
 
 /* Styling Header */
@@ -98,9 +112,9 @@ h2 {
     transform: rotate(180deg); /* Rotasi ikon saat tombol di-hover */
 }
 
-/* Menu Styling (hanya teks yang tampil, tanpa kotak) */
+/* Menu Styling */
 .menu {
-    display: none;
+    display: none; /* Menu tersembunyi secara default */
     margin-bottom: 20px;
     text-align: center;
 }
@@ -177,17 +191,4 @@ h2 {
     h1 {
         font-size: 24px;
     }
-
-    .logo {
-        width: 90px;
-    }
-
-    .menu-item {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-
-    .menu-item i {
-        font-size: 18px;
-    }
-}
+  }
