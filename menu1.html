@@ -186,12 +186,20 @@
 
         <!-- Form Order -->
         <h2>Order Sekarang</h2>
-        <form onsubmit="event.preventDefault(); sendOrder();">
+        <form action="save_order.php" method="POST">
             <label for="name">Nama Anda:</label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" name="name" required>
+            
             <div id="totalCost" class="total-cost">Total: Rp.0</div>
+            
+            <!-- Contoh pengiriman data item dan jumlah (harus diubah sesuai struktur menu Anda) -->
+            <input type="hidden" name="item" value="Crab Stick">
+            <input type="hidden" name="quantity" value="2">
+            <input type="hidden" name="total" value="4000">
+            
             <button type="submit">Kirim Order</button>
         </form>
+        
     </div>
           <!-- Notifikasi untuk WhatsApp -->
         <div id="whatsappNotification" class="notification">
