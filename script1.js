@@ -124,7 +124,7 @@ function sendOrder() {
     orderDetails += `\nTotal Pembayaran: Rp.${total.toLocaleString()}`;
 
     // Nomor WhatsApp tujuan, misalnya +6281234567890
-    const phoneNumber = '6283875538702';  // Gantilah dengan nomor tujuan Anda, tanpa tanda "+" dan spasi
+    const phoneNumber = '6283875535702';  // Gantilah dengan nomor tujuan Anda, tanpa tanda "+" dan spasi
 
     // Encode the order details for the WhatsApp URL
     const whatsappMessage = encodeURIComponent(orderDetails);
