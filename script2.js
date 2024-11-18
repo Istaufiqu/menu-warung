@@ -84,9 +84,12 @@ ${toppingDetails}
 Total: Rp. ${totalCost.toLocaleString()}
     `;
 
+    // Nomor WhatsApp tujuan, misalnya +6281234567890
+    const phoneNumber = '6283875535702';  // Gantilah dengan nomor tujuan Anda, tanpa tanda "+" dan spasi
+
     // Kirim pesan ke WhatsApp
     const whatsappMessage = encodeURIComponent(formattedMessage);
-    const whatsappUrl = `https://wa.me/?text=${whatsappMessage}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
     window.open(whatsappUrl, '_blank');
 
     // Update total harga di layar
