@@ -18,9 +18,9 @@ function sendOrder() {
 
     // Daftar menu items dan harga
     const menuItems = [
-        { id: 'burgerBeef', price: 9000, name: 'Burger Beef', qtyId: 'qtyBurgerBeef' },
-        { id: 'burgerChicken', price: 9000, name: 'Burger Chicken', qtyId: 'qtyBurgerChicken' },
-        { id: 'hotdog', price: 7000, name: 'Hotdog', qtyId: 'qtyHotdog' }
+        { id: 'burgerBeef', price: 10000, name: 'Burger Beef', qtyId: 'qtyBurgerBeef' },
+        { id: 'burgerChicken', price: 10000, name: 'Burger Chicken', qtyId: 'qtyBurgerChicken' },
+        { id: 'hotdog', price: 8000, name: 'Hotdog', qtyId: 'qtyHotdog' }
     ];
 
     // Proses setiap item menu yang dipilih
