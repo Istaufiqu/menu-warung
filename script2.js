@@ -115,9 +115,9 @@ function updateTotalCost() {
 
     // Daftar menu items dan harga
     const menuItems = [
-        { id: 'burgerBeef', price: 9000, qtyId: 'qtyBurgerBeef' },
-        { id: 'burgerChicken', price: 9000, qtyId: 'qtyBurgerChicken' },
-        { id: 'hotdog', price: 7000, qtyId: 'qtyHotdog' }
+        { id: 'burgerBeef', price: 10000, qtyId: 'qtyBurgerBeef' },
+        { id: 'burgerChicken', price: 10000, qtyId: 'qtyBurgerChicken' },
+        { id: 'hotdog', price: 8000, qtyId: 'qtyHotdog' }
     ];
 
     // Hitung total untuk menu items
